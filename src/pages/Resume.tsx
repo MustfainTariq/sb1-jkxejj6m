@@ -80,20 +80,27 @@ export function Resume() {
             </div>
           </section>
 
-          {/* Certifications */}
-          <section>
-            <h2 className="text-xl font-bold mb-4 text-blue-600 dark:text-blue-400">
-              Certifications
-            </h2>
-            {userData.certifications.map((cert) => (
-              <div key={cert.title}>
-                <p className="font-semibold">{cert.title}</p>
-                <p className="text-gray-600 dark:text-gray-300">
-                  Issued: {cert.issued}
-                </p>
-              </div>
-            ))}
-          </section>
+{/* Certifications */}
+<section>
+  <h2 className="text-xl font-bold mb-4 text-blue-600 dark:text-blue-400">
+    Certifications
+  </h2>
+  {userData.certifications.map((cert) => (
+    <div key={cert.title} className="mb-4">
+      <a
+        href="https://www.credly.com/badges/115a8684-0f5f-4ed6-8bd7-90444be41a1e/public_url"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-blue-500 hover:underline"
+      >
+        <p className="font-semibold">{cert.title}</p>
+      </a>
+      <p className="text-gray-600 dark:text-gray-300">
+        Issued: {cert.issued}
+      </p>
+    </div>
+  ))}
+</section>
         </motion.div>
       </div>
     </div>

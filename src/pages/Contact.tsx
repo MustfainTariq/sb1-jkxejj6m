@@ -1,8 +1,44 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Github, Linkedin } from 'lucide-react';
+import axios from 'axios';
 import userData from '../data/userData';
 
 export function Contact() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [responseMessage, setResponseMessage] = useState('');
+
+  const handleInputChange = (e) => {
+    const { id, value } = e.target;
+    setFormData({ ...formData, [id]: value });
+  };
+  console.log(formData);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setResponseMessage('');
+    try {
+      const response = await axios.post(
+        'https://email-server-production-f2a9.up.railway.app/send-message',
+        formData,
+        { headers: { 'Content-Type': 'application/json' } }
+      );
+      setResponseMessage('Message sent successfully!');
+    } catch (error) {
+      setResponseMessage(
+        'Failed to send the message. Please try again later.'
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="min-h-screen pt-16 bg-gray-50 dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -84,7 +120,7 @@ export function Contact() {
             className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6"
           >
             <h2 className="text-2xl font-bold mb-6">Send a Message</h2>
-            <form className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label
                   htmlFor="name"
@@ -95,6 +131,8 @@ export function Contact() {
                 <input
                   type="text"
                   id="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
                   className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                 />
               </div>
@@ -108,6 +146,8 @@ export function Contact() {
                 <input
                   type="email"
                   id="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
                   className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                 />
               </div>
@@ -121,16 +161,24 @@ export function Contact() {
                 <textarea
                   id="message"
                   rows={4}
+                  value={formData.message}
+                  onChange={handleInputChange}
                   className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                 ></textarea>
               </div>
               <button
                 type="submit"
+                disabled={isSubmitting}
                 className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition-colors"
               >
-                Send Message
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
             </form>
+            {responseMessage && (
+              <p className="mt-4 text-center text-sm font-medium text-gray-600 dark:text-gray-300">
+                {responseMessage}
+              </p>
+            )}
           </motion.div>
         </div>
       </div>

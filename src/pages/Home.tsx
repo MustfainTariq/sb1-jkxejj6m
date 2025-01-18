@@ -15,24 +15,35 @@ import userData from '../data/userData';
 const services = [
   {
     icon: <Brain className="w-12 h-12" />,
-    title: 'AI & Machine Learning',
-    description:
-      'Custom AI solutions including deep learning models, computer vision systems, and NLP applications.',
+    title: "AI & Machine Learning",
+    description: "Custom AI solutions including deep learning models, computer vision systems, and NLP applications."
   },
   {
     icon: <Smartphone className="w-12 h-12" />,
-    title: 'Mobile Development',
-    description:
-      'Native and cross-platform mobile applications using React Native and modern mobile technologies.',
+    title: "Mobile Development",
+    description: "Native and cross-platform mobile applications using React Native and modern mobile technologies."
   },
   {
     icon: <Code className="w-12 h-12" />,
-    title: 'Web Development',
-    description:
-      'Full-stack web applications with modern frameworks and responsive design principles.',
+    title: "Web Development",
+    description: "Full-stack web applications with modern frameworks and responsive design principles."
   },
+  {
+    icon: <Bot className="w-12 h-12" />,
+    title: "Chatbots & AI Assistants",
+    description: "Intelligent chatbots and virtual assistants powered by advanced NLP and machine learning."
+  },
+  {
+    icon: <Database className="w-12 h-12" />,
+    title: "Custom SaaS Solutions",
+    description: "Scalable software-as-a-service applications tailored to your business needs."
+  },
+  {
+    icon: <Cloud className="w-12 h-12" />,
+    title: "Cloud Solutions",
+    description: "Cloud infrastructure setup, deployment, and maintenance using AWS and other cloud platforms."
+  }
 ];
-
 function getRandomAvatarUrl(seed: string) {
   return `https://api.dicebear.com/7.x/avataaars/svg?seed=${seed}`;
 }
@@ -83,15 +94,32 @@ export function Home() {
               <Linkedin className="w-6 h-6" />
             </a>
             <a
-              href="https://www.fiverr.com/mustafan02?public_mode=true"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-            >
-              <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M23 9.71V14h-2.29v-.06c-.05-2.71-1.45-4.94-4.13-4.94-2.68 0-4.93 2.15-4.93 5.06 0 2.91 2.25 5.06 4.93 5.06 1.45 0 2.69-.59 3.67-1.61l1.02 1.49c-1.34 1.34-3.03 2.12-4.69 2.12-3.89 0-7.06-3.17-7.06-7.06s3.17-7.06 7.06-7.06c1.66 0 3.35.78 4.69 2.12L20.25 11h2.75zM4.63 15.9c-1.12 0-2.03-.91-2.03-2.03V4.63c0-1.12.91-2.03 2.03-2.03h9.25c1.12 0 2.03.91 2.03 2.03v2.84h-2v-2.5c0-.28-.22-.5-.5-.5H5.13c-.28 0-.5.22-.5.5v8.75c0 .28.22.5.5.5h2.5v2h-3z" />
-              </svg>
-            </a>
+  href="https://www.fiverr.com/mustafan02"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    className="w-6 h-6"
+  >
+    <circle cx="12" cy="12" r="12" fill="#000" />
+    <text
+      x="50%"
+      y="50%"
+      textAnchor="middle"
+      dy=".3em"
+      fontSize="10"
+      fontWeight="bold"
+      fill="#fff"
+    >
+      fi
+    </text>
+  </svg>
+</a>
+
             <a
               href={`mailto:${userData.email}`}
               className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
@@ -100,14 +128,14 @@ export function Home() {
             </a>
           </div>
 
-          <motion.img
+          {/* <motion.img
             src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
             alt="Modern coding workspace"
             className="rounded-lg shadow-xl mx-auto max-w-full"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2 }}
-          />
+          /> */}
         </motion.div>
 
         {/* Featured Services Section */}
