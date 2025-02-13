@@ -168,7 +168,6 @@ const userData = {
         rating: 5,
         date: "5 months ago",
         comment: "Collaborative, hard-working, makes adjustments when asked, the best people I work with",
-        price: "US$200-US$400",
         duration: "3 weeks",
         service: "Android App Development"
       },
@@ -185,7 +184,6 @@ const userData = {
         rating: 5,
         date: "8 months ago",
         comment: "Fast work, very reasonable prices compared to the work, attention to the smallest details, very cooperative in making adjustments, loyal and proficient in the work. I thank you from the bottom of my heart, my brother.",
-        price: "US$50-US$100",
         duration: "3 days",
         service: "API & Integrations"
       },
@@ -195,7 +193,6 @@ const userData = {
         rating: 5,
         date: "8 months ago",
         comment: "I would 100% recommend Mustafan for any and API integration projects!!! He is extremely professional and proactive with hot fixes. He also has extremly deep knowledge on API Intergation",
-        price: "US$50-US$100",
         duration: "6 days",
         service: "API & Integrations"
       },
@@ -205,7 +202,6 @@ const userData = {
         rating: 5,
         date: "8 months ago",
         comment: "Very fast delivery, helpful, and kind. I would recommend him to everyone who needs help with their problems in parallel programming",
-        price: "Up to US$50",
         duration: "1 day",
         service: "Desktop Applications"
       }

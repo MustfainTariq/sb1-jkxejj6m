@@ -70,12 +70,12 @@ const Projects = () => {
       <motion.h1
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="text-5xl font-bold mb-16 text-center bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent"
+        className="text-3xl font-bold mb-12 text-center bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent"
       >
         Featured Projects
       </motion.h1>
 
-      <div className="grid grid-cols-1 gap-12">
+      <div className="grid grid-cols-1 gap-8">
         {projects.map((project, index) => (
           <motion.div
             key={index}
@@ -83,19 +83,19 @@ const Projects = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1 }}
-            className="bg-white shadow-lg dark:bg-gray-800/50 rounded-xl p-10 border border-gray-200 dark:border-gray-700 hover:border-blue-500/50 transition-colors"
+            className="bg-white shadow-lg dark:bg-gray-800/50 rounded-xl p-6 border border-gray-200 dark:border-gray-700 hover:border-blue-500/50 transition-colors"
           >
-            <div className="mb-6">
+            <div className="mb-4">
               <a
                 href={project.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block group"
               >
-                <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-200 mb-4 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-200 mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                   {project.title}
                   <svg
-                    className="w-6 h-6 inline-block ml-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                    className="w-5 h-5 inline-block ml-2 opacity-0 group-hover:opacity-100 transition-opacity"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -109,21 +109,21 @@ const Projects = () => {
                   </svg>
                 </h2>
               </a>
-              <p className="text-xl text-blue-600 dark:text-blue-400 mb-4">{project.category}</p>
-              <div className="flex flex-wrap gap-3 mb-6">
+              <p className="text-lg text-blue-600 dark:text-blue-400 mb-3">{project.category}</p>
+              <div className="flex flex-wrap gap-2 mb-4">
                 {project.tech.map((tech, i) => (
                   <span
                     key={i}
-                    className="px-4 py-2 text-base bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 rounded-full"
+                    className="px-3 py-1 text-sm bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 rounded-full"
                   >
                     {tech}
                   </span>
                 ))}
               </div>
             </div>
-            <ul className="list-disc list-inside space-y-4">
+            <ul className="list-disc list-inside space-y-3">
               {project.description.map((item, i) => (
-                <li key={i} className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                <li key={i} className="text-base text-gray-700 dark:text-gray-300 leading-relaxed">
                   {item}
                 </li>
               ))}

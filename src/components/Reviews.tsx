@@ -7,7 +7,6 @@ const Reviews = () => {
       country: 'United Kingdom',
       rating: 4.7,
       comment: 'Really good and well thought, very polite and worked fast excedded my expectations price was high but seeing the results was worth it',
-      price: 'PKR14,000-PKR28,000',
       duration: '2 days',
       service: 'Desktop Applications',
     },
@@ -16,7 +15,6 @@ const Reviews = () => {
       country: 'Singapore',
       rating: 5,
       comment: 'Exceptional AI expert who knows what he is doing. Highly recommended for AI chat bot and tensorflow work. Did the project timely fashion and was very responsive and friendly. Will hire again and highly recommended! His RAG model is very good.',
-      price: 'PKR224,000-PKR280,000',
       duration: '4 weeks',
       service: 'AI Chatbot Development',
     },
@@ -25,7 +23,6 @@ const Reviews = () => {
       country: 'Hong Kong',
       rating: 5,
       comment: 'His code is beautiful and the work is done with high quality.',
-      price: 'PKR28,000-PKR56,000',
       duration: '10 days',
       service: 'Desktop Applications',
     },
@@ -34,7 +31,6 @@ const Reviews = () => {
       country: 'Saudi Arabia',
       rating: 5,
       comment: 'Collaborative, hard-working, makes adjustments when asked, the best people I work with',
-      price: 'PKR56,000-PKR112,000',
       duration: '3 weeks',
       service: 'Android App Development',
     },
@@ -44,7 +40,7 @@ const Reviews = () => {
     return [...Array(5)].map((_, index) => (
       <svg
         key={index}
-        className={`w-5 h-5 ${
+        className={`w-6 h-6 ${
           index < rating ? 'text-yellow-400' : 'text-gray-400'
         }`}
         fill="currentColor"
@@ -63,15 +59,15 @@ const Reviews = () => {
       className="py-16"
     >
       <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-4 bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
+        <h2 className="text-3xl font-bold text-center mb-8 bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
           Client Reviews
         </h2>
         <div className="text-center mb-12">
-          <div className="flex justify-center items-center space-x-2">
+          <div className="flex justify-center items-center space-x-3">
             <span className="text-4xl font-bold text-gray-900 dark:text-gray-200">5.0</span>
             <div className="flex">{renderStars(5)}</div>
           </div>
-          <p className="text-gray-700 dark:text-gray-400 mt-2">Based on 11 reviews</p>
+          <p className="text-gray-700 dark:text-gray-400 mt-2 text-base">Based on 11 reviews</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -86,15 +82,13 @@ const Reviews = () => {
             >
               <div className="flex items-center justify-between mb-4">
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-200">{review.name}</h3>
-                  <p className="text-gray-700 dark:text-gray-400 text-sm">{review.country}</p>
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-200">{review.name}</h3>
+                  <p className="text-gray-700 dark:text-gray-400 text-base mt-1">{review.country}</p>
                 </div>
                 <div className="flex">{renderStars(review.rating)}</div>
               </div>
-              <p className="text-gray-700 dark:text-gray-300 mb-4">{review.comment}</p>
+              <p className="text-gray-700 dark:text-gray-300 text-base mb-4 leading-relaxed">{review.comment}</p>
               <div className="flex flex-wrap gap-4 text-sm text-gray-600 dark:text-gray-400">
-                <span>Price: {review.price}</span>
-                <span>•</span>
                 <span>Duration: {review.duration}</span>
                 <span>•</span>
                 <span>{review.service}</span>
