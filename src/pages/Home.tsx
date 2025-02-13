@@ -1,233 +1,207 @@
 import { motion } from 'framer-motion';
-import {
-  Github,
-  Linkedin,
-  Mail,
-  Brain,
-  Smartphone,
-  Cloud,
-  Code,
-  Bot,
-  Database,
-} from 'lucide-react';
-import userData from '../data/userData';
+import Reviews from '../components/Reviews';
 
-const services = [
-  {
-    icon: <Brain className="w-12 h-12" />,
-    title: "AI & Machine Learning",
-    description: "Custom AI solutions including deep learning models, computer vision systems, and NLP applications."
-  },
-  {
-    icon: <Smartphone className="w-12 h-12" />,
-    title: "Mobile Development",
-    description: "Native and cross-platform mobile applications using React Native and modern mobile technologies."
-  },
-  {
-    icon: <Code className="w-12 h-12" />,
-    title: "Web Development",
-    description: "Full-stack web applications with modern frameworks and responsive design principles."
-  },
-  {
-    icon: <Bot className="w-12 h-12" />,
-    title: "Chatbots & AI Assistants",
-    description: "Intelligent chatbots and virtual assistants powered by advanced NLP and machine learning."
-  },
-  {
-    icon: <Database className="w-12 h-12" />,
-    title: "Custom SaaS Solutions",
-    description: "Scalable software-as-a-service applications tailored to your business needs."
-  },
-  {
-    icon: <Cloud className="w-12 h-12" />,
-    title: "Cloud Solutions",
-    description: "Cloud infrastructure setup, deployment, and maintenance using AWS and other cloud platforms."
-  }
-];
-function getRandomAvatarUrl(seed: string) {
-  return `https://api.dicebear.com/7.x/avataaars/svg?seed=${seed}`;
-}
+const Home = () => {
+  const skills = {
+    languages: ['Python', 'Java', 'JavaScript', 'TypeScript', 'SQL'],
+    ml_ai: [
+      'TensorFlow',
+      'PyTorch',
+      'scikit-learn',
+      'OpenAI API',
+      'Hugging Face Transformers',
+      'LangChain',
+      'Generative AI',
+      'LLMs',
+      'RAG',
+    ],
+    frameworks: [
+      'FastAPI',
+      'Flask',
+      'Streamlit',
+      'Docker',
+      'Kubernetes',
+      'AWS',
+      'GCP',
+      'Git',
+      'CI/CD',
+    ],
+    development: [
+      'React',
+      'Next.js',
+      'React Native',
+      'Vue.js',
+      'Vite',
+      'Node.js',
+      'Express',
+      'Tailwind CSS',
+    ],
+    databases: ['Redis', 'PostgreSQL', 'MongoDB', 'FAISS', 'Pinecone', 'Weaviate', 'ChromaDB'],
+  };
 
-export function Home() {
+  const services = [
+    {
+      title: 'AI & Machine Learning',
+      description: 'Custom AI solutions including deep learning models, computer vision systems, and NLP applications.',
+      icon: (
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+      ),
+    },
+    {
+      title: 'Mobile Development',
+      description: 'Native and cross-platform mobile applications using React Native and modern mobile technologies.',
+      icon: (
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+        </svg>
+      ),
+    },
+    {
+      title: 'Web Development',
+      description: 'Full-stack web applications with modern frameworks and responsive design principles.',
+      icon: (
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+        </svg>
+      ),
+    },
+    {
+      title: 'Chatbots & AI Assistants',
+      description: 'Intelligent chatbots and virtual assistants powered by advanced NLP and machine learning.',
+      icon: (
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+        </svg>
+      ),
+    },
+    {
+      title: 'Custom SaaS Solutions',
+      description: 'Scalable software-as-a-service applications tailored to your business needs.',
+      icon: (
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+        </svg>
+      ),
+    },
+    {
+      title: 'Cloud Solutions',
+      description: 'Cloud infrastructure setup, deployment, and maintenance using AWS and other cloud platforms.',
+      icon: (
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+        </svg>
+      ),
+    },
+  ];
+
   return (
-    <div className="min-h-screen pt-16 bg-gray-50 dark:bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* Hero Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-20"
-        >
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-            Hi, I'm{' '}
-            <span className="text-blue-600 dark:text-blue-400">
-              Mustfain Tariq
-            </span>
-          </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
-            Welcome! I'm Mustfain Tariq, a full-stack AI engineer with expertise
-            in React Native cross-platform, Android (Java/Kotlin), and Flutter
-            cross-platform development. I specialize in generative AI, utilizing
-            advanced techniques like VAEs and GANs, and have built systems to
-            enhance data-driven decision-making with TensorFlow and PyTorch. In
-            mobile app development, I excel in Java, Kotlin, Flutter, and React
-            Native, delivering high-performance solutions with comprehensive
-            backend support.
-          </p>
+    <div className="pt-16 space-y-16">
+      {/* Hero Section */}
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="min-h-[60vh] flex flex-col justify-center items-center text-center"
+      >
+        <h1 className="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
+          Mustfain Tariq
+        </h1>
+        <h2 className="text-3xl md:text-4xl font-semibold text-gray-800 dark:text-gray-200 mb-6">
+          AI & Machine Learning Engineer
+        </h2>
+        <p className="max-w-3xl text-lg md:text-xl text-gray-700 dark:text-gray-300 leading-relaxed font-medium">
+          Focused on generative models and intelligent systems, I build AI solutions to enhance data access
+          and decision-making, leveraging deep learning and NLP expertise to create efficient, impactful
+          applications.
+        </p>
+      </motion.section>
 
-          <div className="flex justify-center space-x-4 mb-12">
-            <a
-              href={`https://${userData.github}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+      {/* Featured Services Section */}
+      <motion.section
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        className="py-12"
+      >
+        <h2 className="text-5xl font-bold text-center mb-12 bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
+          Featured Services
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto px-4">
+          {services.map((service, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="bg-white shadow-lg dark:bg-gray-800/50 p-8 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-blue-500/50 transition-colors h-[280px] flex flex-col"
             >
-              <Github className="w-6 h-6" />
-            </a>
-            <a
-              href={`https://${userData.linkedin}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-            >
-              <Linkedin className="w-6 h-6" />
-            </a>
-            <a
-  href="https://www.fiverr.com/mustafan02"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
->
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    fill="currentColor"
-    className="w-6 h-6"
-  >
-    <circle cx="12" cy="12" r="12" fill="#000" />
-    <text
-      x="50%"
-      y="50%"
-      textAnchor="middle"
-      dy=".3em"
-      fontSize="10"
-      fontWeight="bold"
-      fill="#fff"
-    >
-      fi
-    </text>
-  </svg>
-</a>
+              <div className="text-blue-600 dark:text-blue-400 mb-4">
+                <svg className="w-12 h-12" {...service.icon.props} />
+              </div>
+              <h3 className="text-2xl font-semibold mb-3 text-gray-900 dark:text-gray-200">{service.title}</h3>
+              <p className="text-lg text-gray-700 dark:text-gray-400 flex-grow">{service.description}</p>
+            </motion.div>
+          ))}
+        </div>
+      </motion.section>
 
-            <a
-              href={`mailto:${userData.email}`}
-              className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-            >
-              <Mail className="w-6 h-6" />
-            </a>
-          </div>
+      {/* Skills Section */}
+      <motion.section
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        className="py-24"
+      >
+        <h2 className="text-5xl font-bold text-center mb-20 bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
+          Technical Expertise
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 max-w-7xl mx-auto px-4">
+          <SkillCategory title="Programming Languages" skills={skills.languages} />
+          <SkillCategory title="Machine Learning / AI" skills={skills.ml_ai} />
+          <SkillCategory title="Development" skills={skills.development} />
+          <SkillCategory title="DevOps & Cloud" skills={skills.frameworks} />
+          <SkillCategory title="Databases" skills={skills.databases} />
+        </div>
+      </motion.section>
 
-          {/* <motion.img
-            src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-            alt="Modern coding workspace"
-            className="rounded-lg shadow-xl mx-auto max-w-full"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2 }}
-          /> */}
-        </motion.div>
+      {/* Reviews Section */}
+      <Reviews />
 
-        {/* Featured Services Section */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="mb-20"
+      {/* CTA Section */}
+      <motion.section
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        className="text-center py-20"
+      >
+        <h2 className="text-4xl font-bold mb-10">Let's Work Together</h2>
+        <a
+          href="/contact"
+          className="inline-block bg-gradient-to-r from-blue-500 to-purple-500 text-white px-10 py-4 rounded-full text-xl font-medium hover:opacity-90 transition-opacity"
         >
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">
-            Featured Services
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <motion.div
-                key={service.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow"
-              >
-                <div className="text-blue-600 dark:text-blue-400 mb-4">
-                  {service.icon}
-                </div>
-                <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300">
-                  {service.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Client Reviews Section */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="mb-20"
-        >
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">
-            Client Reviews
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {userData.reviews.slice(0, 6).map((review, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg"
-              >
-                <div className="flex items-center mb-4">
-                  <img
-                    src={getRandomAvatarUrl(review.reviewer)}
-                    alt={review.reviewer}
-                    className="w-12 h-12 rounded-full mr-4"
-                  />
-                  <div>
-                    <h3 className="font-semibold text-gray-900 dark:text-white">
-                      {review.reviewer}
-                    </h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
-                      {review.country}
-                    </p>
-                  </div>
-                  <div className="ml-auto">
-                    <div className="flex items-center">
-                      {Array.from({ length: review.rating }).map((_, i) => (
-                        <svg
-                          key={i}
-                          className="w-5 h-5 text-yellow-400"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                        >
-                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                        </svg>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-                <p className="text-gray-600 dark:text-gray-300">
-                  {review.comment}
-                </p>
-                <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
-                  {review.date}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-      </div>
+          Get in Touch
+        </a>
+      </motion.section>
     </div>
   );
-}
+};
+
+const SkillCategory = ({ title, skills }: { title: string; skills: string[] }) => (
+  <div className="bg-white shadow-lg dark:bg-gray-800/50 p-8 rounded-xl border border-gray-200 dark:border-gray-700">
+    <h3 className="text-xl font-semibold mb-6 text-gray-900 dark:text-gray-200">{title}</h3>
+    <ul className="space-y-3">
+      {skills.map((skill) => (
+        <li
+          key={skill}
+          className="text-lg text-gray-700 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+        >
+          {skill}
+        </li>
+      ))}
+    </ul>
+  </div>
+);
+
+export default Home;

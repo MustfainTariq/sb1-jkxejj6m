@@ -1,31 +1,28 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Navbar } from './components/Navbar';
-import { Home } from './pages/Home';
-import { Services } from './pages/Services';
-import { Portfolio } from './pages/Portfolio';
-import { Resume } from './pages/Resume';
-import { Pricing } from './pages/Pricing';
-import { Contact } from './pages/Contact';
-import { AnimatePresence } from 'framer-motion';
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import Experience from './pages/Experience';
+import Projects from './pages/Projects';
+import Contact from './pages/Contact';
+import Footer from './components/Footer';
 
-function App() {
+const App = () => {
   return (
     <Router>
-      <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
+      <div className="min-h-screen bg-white text-gray-800 transition-colors duration-200 dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-800 dark:text-white">
         <Navbar />
-        <AnimatePresence mode="wait">
+        <main className="container mx-auto px-4 py-8">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/portfolio" element={<Portfolio />} />
-            <Route path="/resume" element={<Resume />} />
-            {/* <Route path="/pricing" element={<Pricing />} /> */}
+            <Route path="/experience" element={<Experience />} />
+            <Route path="/projects" element={<Projects />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
-        </AnimatePresence>
+        </main>
+        <Footer />
       </div>
     </Router>
   );
-}
+};
 
 export default App;
