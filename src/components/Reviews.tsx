@@ -3,14 +3,6 @@ import { motion } from 'framer-motion';
 const Reviews = () => {
   const reviews = [
     {
-      name: 'danagh',
-      country: 'United Kingdom',
-      rating: 4.7,
-      comment: 'Really good and well thought, very polite and worked fast excedded my expectations price was high but seeing the results was worth it',
-      duration: '2 days',
-      service: 'Desktop Applications',
-    },
-    {
       name: 'aurorazz',
       country: 'Singapore',
       rating: 5,
@@ -19,20 +11,28 @@ const Reviews = () => {
       service: 'AI Chatbot Development',
     },
     {
-      name: 'ya_gao',
-      country: 'Hong Kong',
+      name: 'cornel_45',
+      country: 'Ireland',
       rating: 5,
-      comment: 'His code is beautiful and the work is done with high quality.',
-      duration: '10 days',
-      service: 'Desktop Applications',
+      comment: 'I would 100% recommend Mustafan for any and API integration projects!!! He is extremely professional and proactive with hot fixes. He also has extremly deep knowledge on API Intergation',
+      duration: '6 days',
+      service: 'API & Integrations',
+    },
+    {
+      name: 'eli_aluko',
+      country: 'Ireland',
+      rating: 5,
+      comment: 'Would highly recommend, work was done quickly and to a high standard. Mustafan was always readily available to talk and had very quick responses. Very happy!',
+      duration: '9 days',
+      service: 'Android App Development',
     },
     {
       name: 'rreda1420',
       country: 'Saudi Arabia',
       rating: 5,
-      comment: 'Collaborative, hard-working, makes adjustments when asked, the best people I work with',
-      duration: '3 weeks',
-      service: 'Android App Development',
+      comment: 'Fast work, very reasonable prices compared to the work, attention to the smallest details, very cooperative in making adjustments, loyal and proficient in the work. I thank you from the bottom of my heart, my brother.',
+      duration: '3 days',
+      service: 'API & Integrations',
     },
   ];
 
