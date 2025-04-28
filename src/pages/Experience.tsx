@@ -5,6 +5,7 @@ const Experience = () => {
     {
       title: 'Backend Engineer',
       company: 'REVOT AI',
+      companyUrl: 'https://www.revot.pk/en',
       location: 'Islamabad, Pakistan (Hybrid)',
       period: 'Nov 2024 - Present',
       description: [
@@ -16,21 +17,24 @@ const Experience = () => {
       ],
     },
     {
-      title: 'AI Engineer (RAG, LLM, NLP)',
+      title: 'AI Engineer (RAG, LLM, NLP) Contract',
       company: 'Evoke Valley',
+      companyUrl: 'https://www.linkedin.com/company/evokevalley/',
       location: 'Lahore, Pakistan (Remote)',
-      period: 'Jan 2025 - Present',
+      period: 'Jan 2025 - Mar 2025',
       description: [
-        'Contributing to the development of an AI-based EdTech platform.',
-        'Implementing and maintaining Python-based AI solutions to meet project requirements.',
-        'Developing RAG pipelines and integrating LLMs into the system.',
-        'Utilizing LangChain to enhance AI-driven applications and optimize chatbot workflows.',
-        'Building and deploying FastAPI-based microservices for efficient backend processing.',
-      ],
+        'Contributed to the development of an AI-based EdTech platform.',
+        'Implemented and maintained Python-based AI solutions to meet project requirements.',
+        'Developed RAG pipelines and integrated LLMs into the system.',
+        'Utilized LangChain to enhance AI-driven applications and optimize chatbot workflows.',
+        'Built and deployed FastAPI-based microservices for efficient backend processing.',
+      ]
+      ,
     },
     {
       title: 'Mobile Application Development Intern',
       company: 'DPL - Islamabad',
+      companyUrl: 'https://www.linkedin.com/company/dpl-it/',
       location: 'Islamabad, Pakistan',
       period: 'July 2024 - October 2024',
       description: [
@@ -54,7 +58,7 @@ const Experience = () => {
     degree: 'Bachelor in Computer Science',
     institution: 'FAST-NUCES',
     location: 'Islamabad, Pakistan',
-    period: 'Sept 2020 - Jan 2025',
+    period: 'Sept 2020 - Jan 2024',
   };
 
   const certifications = [
@@ -88,7 +92,20 @@ const Experience = () => {
               <div className="flex flex-wrap justify-between items-start mb-6">
                 <div>
                   <h3 className="text-3xl font-semibold text-gray-900 dark:text-gray-200 mb-3">{exp.title}</h3>
-                  <p className="text-xl text-blue-600 dark:text-blue-400 mb-2">{exp.company}</p>
+                  <p className="text-xl text-blue-600 dark:text-blue-400 mb-2">
+                    {exp.companyUrl ? (
+                      <a 
+                        href={exp.companyUrl} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="hover:underline"
+                      >
+                        {exp.company}
+                      </a>
+                    ) : (
+                      exp.company
+                    )}
+                  </p>
                   <p className="text-lg text-gray-700 dark:text-gray-400">{exp.location}</p>
                 </div>
                 <span className="text-lg text-gray-600 dark:text-gray-400 font-medium">{exp.period}</span>

@@ -16,6 +16,20 @@ const Projects = () => {
       ],
     },
     {
+      title: 'AI Calling Agent Backend',
+      category: 'Backend Development & AI Integration',
+      tech: ['FastAPI', 'Twilio', 'ElevenLabs', 'JWT', 'WebSockets', 'AI Integration'],
+      url: 'http://20.55.33.123:4173/login',
+      demoUrl: 'https://www.loom.com/share/38508eb925b04f9385bd79fc3a272879?sid=87a5f5fb-4a0d-41a1-8bad-a4f02410c6a7',
+      description: [
+        'Developed a robust FastAPI backend system for managing, analyzing, and automating phone call operations with AI integration.',
+        'Implemented three main call handling categories: Campaign Calls (bulk dialing), Outbound Single Calls, and Inbound Calls with AI agent responses.',
+        'Integrated voice cloning capabilities using ElevenLabs, allowing personalized AI interactions from audio samples.',
+        'Built agent script management for structured conversations and implemented call data analysis with CRM integration.',
+        'Secured the system with JWT token authentication and integrated with Twilio for telephony services.',
+      ],
+    },
+    {
       title: 'MLOps Pipeline Integration and Deployment',
       category: 'DevOps & MLOps Project',
       tech: ['MLFlow', 'Airflow', 'DVC', 'Docker', 'Kubernetes', 'CI/CD', 'AI Integration'],
@@ -109,6 +123,16 @@ const Projects = () => {
                   </svg>
                 </h2>
               </a>
+              {project.demoUrl && (
+                <a
+                  href={project.demoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block text-sm text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 mb-3 underline ml-2"
+                >
+                  View Demo
+                </a>
+              )}
               <p className="text-lg text-blue-600 dark:text-blue-400 mb-3">{project.category}</p>
               <div className="flex flex-wrap gap-2 mb-4">
                 {project.tech.map((tech, i) => (
